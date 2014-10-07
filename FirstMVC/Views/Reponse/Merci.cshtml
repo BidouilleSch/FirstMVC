@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Merci";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <h2>Merci</h2>
+</head>
+
+<body>
+    <div>
+        @if (Model.presence==true)
+        { 
+            @:super on passera un bon moment;
+        }
+            else
+            {
+                @:Tant Pis
+            }
+    </div>
+
+    @{
+        try
+        {
+            WebMail.SmtpServer = "smtp.gmail.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "Dominique.Schillings@gmail.com";
+            WebMail.Password = "Rondoudou1";
+            WebMail.From = "Dominique.Schillings@gmail.com";
+            WebMail.Send = 
+            
+        }
+    }
+</body>
+</html>
+

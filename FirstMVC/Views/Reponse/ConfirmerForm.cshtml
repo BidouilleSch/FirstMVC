@@ -1,0 +1,45 @@
+﻿@model FirstMVC.Models.GuestResponse
+
+@{
+    ViewBag.Title = "ConfirmerForm";
+}
+
+<h2>ConfirmerForm</h2>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> ConfirmForm</title>
+</head>
+
+<body>
+    <div>
+        @using (Html.BeginForm())
+          {
+            <p>
+                Nom: @Html.TextBoxFor(x=> x.Nom)
+            </p>
+            <p>
+                Prenom: @Html.TextBoxFor(x=> x.Prenom)
+            </p>
+            <p>
+                Email: @Html.TextBoxFor(x=> x.Email)
+            </p>
+
+              <p>Serez-vous présent ?
+                
+                @Html.DropDownListFor(x=> x.presence, new[]
+                  {
+                      new SelectListItem() {Text = "Oui, je serai présent", Value=bool.TrueString},
+                      new SelectListItem() {Text = "Non, je ne serai pas présent", Value=bool.FalseString}
+                  },"Je suis au régime")
+               </p>
+        
+            <input type="submit" value="Valider ma participation"/>
+        }
+        
+    </div>
+</body>
+</html>
